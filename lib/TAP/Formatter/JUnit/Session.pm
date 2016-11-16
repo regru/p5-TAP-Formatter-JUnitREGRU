@@ -6,6 +6,7 @@ extends qw(
     TAP::Formatter::Console::Session
 );
 
+use Encode;
 use Storable qw(dclone);
 use File::Path qw(mkpath);
 use IO::File;
@@ -72,6 +73,7 @@ sub result {
             'time'   => $self->get_time,
             'result' => $result,
         );
+        $wrapped->{result}{$_} = Encode::decode("UTF-8", $wrapped->{result}{$_}) for (qw/description raw/);
         $self->_queue_add($wrapped);
     }
 }
@@ -361,8 +363,6 @@ sub _squeaky_clean {
     my $string = shift;
     # control characters (except CR and LF)
     $string =~ s/([\x00-\x09\x0b\x0c\x0e-\x1f])/"^".chr(ord($1)+64)/ge;
-    # high-byte characters
-    $string =~ s/([\x7f-\xff])/'[\\x'.sprintf('%02x',ord($1)).']'/ge;
     return $string;
 }
 

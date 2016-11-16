@@ -7,6 +7,7 @@ extends qw(
 );
 
 use XML::Generator;
+use Encode;
 use TAP::Formatter::JUnit::Session;
 
 our $VERSION = '0.11';
@@ -62,7 +63,7 @@ sub summary {
     return if $self->silent();
 
     my @suites = @{$self->testsuites};
-    print { $self->stdout } $self->xml->testsuites( @suites );
+    print { $self->stdout } Encode::encode("UTF-8", $self->xml->testsuites( @suites ));
 }
 
 1;
