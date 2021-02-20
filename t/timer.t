@@ -44,7 +44,7 @@ sub run_test {
     my $junit = undef;
     my $fh    = IO::Scalar->new(\$junit);
     my $harness = TAP::Harness->new( {
-        formatter_class => 'TAP::Formatter::JUnit',
+        formatter_class => 'TAP::Formatter::JUnitREGRU',
         stdout          => $fh,
         %{$opts},
     } );

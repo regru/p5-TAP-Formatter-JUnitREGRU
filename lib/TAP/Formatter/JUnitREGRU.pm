@@ -1,4 +1,4 @@
-package TAP::Formatter::JUnit;
+package TAP::Formatter::JUnitREGRU;
 
 use Moose;
 use MooseX::NonMoose;
@@ -8,9 +8,9 @@ extends qw(
 
 use XML::Generator;
 use Encode;
-use TAP::Formatter::JUnit::Session;
+use TAP::Formatter::JUnitREGRU::Session;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 has 'testsuites' => (
     is      => 'rw',
@@ -41,11 +41,11 @@ sub _build_xml {
 ###############################################################################
 # Over-ridden 'open_test()' method.
 #
-# Creates a 'TAP::Formatter::JUnit::Session' session, instead of a console
+# Creates a 'TAP::Formatter::JUnitREGRU::Session' session, instead of a console
 # formatter session.
 sub open_test {
     my ($self, $test, $parser) = @_;
-    my $session = TAP::Formatter::JUnit::Session->new( {
+    my $session = TAP::Formatter::JUnitREGRU::Session->new( {
         name            => $test,
         formatter       => $self,
         parser          => $parser,
@@ -70,19 +70,19 @@ sub summary {
 
 =head1 NAME
 
-TAP::Formatter::JUnit - Harness output delegate for JUnit output
+TAP::Formatter::JUnitREGRU - Harness output delegate for JUnit output
 
 =head1 SYNOPSIS
 
 On the command line, with F<prove>:
 
-  prove --formatter TAP::Formatter::JUnit ...
+  prove --formatter TAP::Formatter::JUnitREGRU ...
 
 Or, in your own scripts:
 
   use TAP::Harness;
   my $harness = TAP::Harness->new( {
-      formatter_class => 'TAP::Formatter::JUnit',
+      formatter_class => 'TAP::Formatter::JUnitREGRU',
       merge => 1,
   } );
   $harness->runtests(@tests);
@@ -91,7 +91,7 @@ Or, in your own scripts:
 
 B<This code is currently in alpha state and is subject to change.>
 
-C<TAP::Formatter::JUnit> provides JUnit output formatting for C<TAP::Harness>.
+C<TAP::Formatter::JUnitREGRU> provides JUnit output formatting for C<TAP::Harness>.
 
 By default (e.g. when run with F<prove>), the I<entire> test suite is gathered
 together into a single JUnit XML document, which is then displayed on C<STDOUT>.
@@ -135,7 +135,7 @@ An C<XML::Generator> instance, to be used to generate XML output.
 
 Over-ridden C<open_test()> method.
 
-Creates a C<TAP::Formatter::JUnit::Session> session, instead of a console
+Creates a C<TAP::Formatter::JUnitREGRU::Session> session, instead of a console
 formatter session.
 
 =item B<summary($aggregate)>
@@ -176,7 +176,7 @@ terms as Perl itself.
 =head1 SEE ALSO
 
 L<TAP::Formatter::Console>,
-L<TAP::Formatter::JUnit::Session>,
+L<TAP::Formatter::JUnitREGRU::Session>,
 L<http://hudson.dev.java.net/>,
 L<http://jra1mw.cvs.cern.ch:8180/cgi-bin/jra1mw.cgi/org.glite.testing.unit/config/JUnitXSchema.xsd?view=markup&content-type=text%2Fvnd.viewcvs-markup&revision=HEAD>,
 L<http://confluence.atlassian.com/display/BAMBOO/JUnit+parsing+in+Bamboo>.

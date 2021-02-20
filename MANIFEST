@@ -6,9 +6,9 @@ META.yml
 META.json
 README
 bin/tap2junit
-lib/TAP/Formatter/JUnit.pm
-lib/TAP/Formatter/JUnit/Result.pm
-lib/TAP/Formatter/JUnit/Session.pm
+lib/TAP/Formatter/JUnitREGRU.pm
+lib/TAP/Formatter/JUnitREGRU/Result.pm
+lib/TAP/Formatter/JUnitREGRU/Session.pm
 t/formatter.t
 t/passing-todos.t
 t/tap2junit.t

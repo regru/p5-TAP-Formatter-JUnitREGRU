@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use TAP::Parser;
 use TAP::Parser::Aggregator;
-use TAP::Formatter::JUnit;
+use TAP::Formatter::JUnitREGRU;
 use Getopt::Long;
 use Pod::Usage;
 use IO::File;
@@ -60,7 +60,7 @@ foreach my $file (@tap_files) {
     eval {
         # Create the TAP formatter, aggregator, and parser that we're going to
         # use to convert the TAP to JUnit.
-        my $formatter  = TAP::Formatter::JUnit->new( { stdout => $fout } );
+        my $formatter  = TAP::Formatter::JUnitREGRU->new( { stdout => $fout } );
         my $aggregator = TAP::Parser::Aggregator->new();
         my $parser     = TAP::Parser->new( { tap => $tap } );
 
@@ -173,6 +173,6 @@ terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<TAP::Formatter::JUnit>.
+L<TAP::Formatter::JUnitREGRU>.
 
 =cut

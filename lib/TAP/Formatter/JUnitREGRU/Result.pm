@@ -1,4 +1,4 @@
-package TAP::Formatter::JUnit::Result;
+package TAP::Formatter::JUnitREGRU::Result;
 
 use Moose;
 
@@ -33,11 +33,11 @@ has 'result' => (
 
 =head1 NAME
 
-TAP::Formatter::JUnit::Result - Wrapper for a TAP result
+TAP::Formatter::JUnitREGRU::Result - Wrapper for a TAP result
 
 =head1 DESCRIPTION
 
-C<TAP::Formatter::JUnit::Result> is an internal class, used to wrap/augment
+C<TAP::Formatter::JUnitREGRU::Result> is an internal class, used to wrap/augment
 C<TAP::Parser::Result> objects with timing information.
 
 B<NOT recommended for public consumption; internal use only.>
