@@ -1,4 +1,4 @@
-package TAP::Formatter::JUnit::Session;
+package TAP::Formatter::JUnitREGRU::Session;
 
 use Moose;
 use MooseX::NonMoose;
@@ -10,7 +10,7 @@ use Encode;
 use Storable qw(dclone);
 use File::Path qw(mkpath);
 use IO::File;
-use TAP::Formatter::JUnit::Result;
+use TAP::Formatter::JUnitREGRU::Result;
 
 has 'testcases' => (
     is      => 'rw',
@@ -69,7 +69,7 @@ sub result {
              || ($result->raw() =~ /^# Looks like you planned \d+ tests? but ran \d+/)
              || ($result->raw() =~ /^# Looks like your test died before it could output anything/)
            ) {
-        my $wrapped = TAP::Formatter::JUnit::Result->new(
+        my $wrapped = TAP::Formatter::JUnitREGRU::Result->new(
             'time'   => $self->get_time,
             'result' => $result,
         );
@@ -162,7 +162,7 @@ sub close_test {
     }
 
     # track time for teardown, if needed
-    if ($timer_enabled && @{$queue}) {
+    if ($timer_enabled) {
         my $duration = $self->parser->end_time - $queue->[-1]->time;
         my $case     = $xml->testcase( {
             'name' => _squeaky_clean('(teardown)'),
@@ -370,11 +370,11 @@ sub _squeaky_clean {
 
 =head1 NAME
 
-TAP::Formatter::JUnit::Session - Harness output delegate for JUnit output
+TAP::Formatter::JUnitREGRU::Session - Harness output delegate for JUnit output
 
 =head1 DESCRIPTION
 
-C<TAP::Formatter::JUnit::Session> provides JUnit output formatting for
+C<TAP::Formatter::JUnitREGRU::Session> provides JUnit output formatting for
 C<TAP::Harness>.
 
 =head1 METHODS
@@ -432,6 +432,6 @@ terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<TAP::Formatter::JUnit>.
+L<TAP::Formatter::JUnitREGRU>.
 
 =cut

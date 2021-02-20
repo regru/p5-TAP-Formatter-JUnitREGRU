@@ -12,7 +12,7 @@ passing_todo_default_fail: {
     my $results = undef;
     my $fh      = IO::Scalar->new(\$results);
     my $harness = TAP::Harness->new( {
-        formatter_class => 'TAP::Formatter::JUnit',
+        formatter_class => 'TAP::Formatter::JUnitREGRU',
         stdout          => $fh,
     } );
     $harness->runtests('t/data/tests/todo');
@@ -30,7 +30,7 @@ passing_todo_ok: {
     my $results = undef;
     my $fh      = IO::Scalar->new(\$results);
     my $harness = TAP::Harness->new( {
-        formatter_class => 'TAP::Formatter::JUnit',
+        formatter_class => 'TAP::Formatter::JUnitREGRU',
         stdout          => $fh,
     } );
     $harness->runtests('t/data/tests/todo');

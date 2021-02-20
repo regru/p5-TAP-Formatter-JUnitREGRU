@@ -28,7 +28,7 @@ foreach my $test (@tests) {
         my $harness = TAP::Harness->new( {
             stdout          => $fh,
             merge           => 1,
-            formatter_class => 'TAP::Formatter::JUnit',
+            formatter_class => 'TAP::Formatter::JUnitREGRU',
         } );
         $harness->runtests($test);
     };

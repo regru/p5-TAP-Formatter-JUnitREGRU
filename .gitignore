@@ -1,1 +1,6 @@
 .idea/
+blib/
+_build/
+Build
+MANIFEST.bak
+MYMETA.*
