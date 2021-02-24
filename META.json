@@ -40,7 +40,7 @@
    "provides" : {
       "TAP::Formatter::JUnitREGRU" : {
          "file" : "lib/TAP/Formatter/JUnitREGRU.pm",
-         "version" : "0.12"
+         "version" : "0.13"
       },
       "TAP::Formatter::JUnitREGRU::Result" : {
          "file" : "lib/TAP/Formatter/JUnitREGRU/Result.pm"
@@ -55,6 +55,6 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.12",
+   "version" : "0.13",
    "x_serialization_backend" : "JSON::PP version 4.02"
 }
